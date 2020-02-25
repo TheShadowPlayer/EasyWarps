@@ -1,0 +1,13 @@
+name: EasyWarps
+author: Rene Lohrer
+version: 1.0.0
+description: This is a plugin which makes it easy to set teleportation points
+main: de.xshadowplayerx.easywarps.main
+commands:
+  setwarp:
+    description: Sets a teleportation point
+    usage: /<command> <warpname>
+    permission: system.admin
+  warp:
+    description: Teleport yourself to the specified point
+    usage: /<command> <warpname>
