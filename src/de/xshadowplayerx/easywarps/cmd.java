@@ -21,6 +21,7 @@ public class cmd implements CommandExecutor
         if (cmd.getName().equalsIgnoreCase("warp")) {
             if (args.length == 0) {
                 p.sendMessage(String.valueOf(prefix) + " §cDu must ein Argument angeben §7| §4/warp <WARPPUNKT> §7|");
+                return true;
             }
             else if (this.plugin.getConfig().contains("warp." + args[0])) {
                 final double x1 = this.plugin.getConfig().getDouble("warp." + args[0] + ".x");
@@ -29,17 +30,21 @@ public class cmd implements CommandExecutor
                 final String w1 = this.plugin.getConfig().getString("warp." + args[0] + ".world");
                 final Location loc = new Location(this.plugin.getServer().getWorld(w1), x1, y1, z1);
                 p.teleport(loc);
+                return true;
             }
             else {
                 p.sendMessage(String.valueOf(prefix) + " §cDer Warppunkt ist uns Unbekannt.");
+                return true;
             }
         }
         if (cmd.getName().equalsIgnoreCase("setwarp") && p.hasPermission("system.admin")) {
             if (args.length == 0) {
                 p.sendMessage(String.valueOf(prefix) + " §cDu must ein Argument angeben §7| §4/setwarp <WARPPUNKT> §7|");
+                return true;
             }
             else if (this.plugin.getConfig().contains("warp." + args[0])) {
                 p.sendMessage(String.valueOf(prefix) + " §cDer Warppunkt ist uns bereits Bekannt.");
+                return true;
             }
             else {
                 final double x2 = p.getLocation().getX();
@@ -53,6 +58,7 @@ public class cmd implements CommandExecutor
                 this.plugin.saveConfig();
                 this.plugin.reloadConfig();
                 p.sendMessage(String.valueOf(prefix) + " §2Warppunkt wurde erfolgreich gesetzt");
+                return true;
             }
         }
         return false;
