@@ -35,6 +35,7 @@ public class CMDsetwarp implements CommandExecutor {
 				point.save();
 				WarpPoint.WarpPoints.put(args[0], point);
 				p.sendMessage(String.valueOf(prefix) + " §2Warppunkt wurde erfolgreich gesetzt");
+				plugin.messageSystem.sendMessageToPlayer(p, "test1");
 			}
 		} else {
 
